@@ -1,0 +1,32 @@
+_config.yml
+
+# Site settings
+title: "Your Project Title"
+description: "A brief description of your project."
+baseurl: ""
+url: "https://yourusername.github.io"
+
+# Navigation (optional)
+nav:
+  - title: "Landing Page"
+    url: "#landing"
+  - title: "Introduction"
+    url: "#introduction"
+  - title: "Methodology"
+    url: "#methodology"
+  - title: "Workflow & Discussion"
+    url: "#workflow"
+
+# Social links
+github_repo: "https://github.com/your-repo"
+drive_link: "https://drive.google.com/your-link"
+
+# Theme settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# SASS settings
+sass:
+  sass_dir: _sass
+  style: compressed
