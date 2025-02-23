@@ -7,8 +7,8 @@ layout: default
     <h1>{{ site.sections.landing.title }}</h1>
     <p>Members: {{ site.sections.landing.members }}</p>
     <p>Mentor: {{ site.sections.landing.mentor }}</p>
-    <a href="{{ site.sections.landing.github_link }}" class="icon-link"><img src="assets/github-icon.png" alt="GitHub"></a>
-    <a href="{{ site.sections.landing.drive_link }}" class="icon-link"><img src="assets/drive-icon.png" alt="Google Drive"></a>
+    <a href="{{ site.sections.landing.github_link }}" class="icon-link"><img src="/assets/github-icon.png" alt="GitHub"></a>
+    <a href="{{ site.sections.landing.drive_link }}" class="icon-link"><img src="/assets/drive-icon.png" alt="Google Drive"></a>
   </div>
 </section>
 
