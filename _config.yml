@@ -1,5 +1,3 @@
-_config.yml
-
 # Site settings
 title: "Your Project Title"
 description: "A brief description of your project."
@@ -22,9 +20,14 @@ github_repo: "https://github.com/your-repo"
 drive_link: "https://drive.google.com/your-link"
 
 # Theme settings
+theme: minima # Using Minima theme for a clean look
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+# Build settings
+markdown: kramdown
+permalink: pretty
 
 # SASS settings
 sass:
