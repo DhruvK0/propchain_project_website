@@ -1,30 +1,69 @@
 title: Your Project Title
-description: A brief description of your project.
-author:
-  name: Your Team Members
-  mentor: Mentor Name
-theme: minima # Or a theme of your choice that supports custom layouts
+description: A detailed description of your project
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
-# Custom variables for your sections
-sections:
-  landing:
-    title: Your Project Title
-    members: Your Team Members
-    mentor: Mentor Name
-    github_link: "YOUR_GITHUB_REPO_LINK"
-    drive_link: "YOUR_GOOGLE_DRIVE_LINK"
-  introduction:
-    title: Introduction
-    content: |
-      This section provides an introduction to your project. 
-      [Add detailed information here.]
-  methodology:
-    title: Methodology
-    content: |
-      Here, you'll describe the methods used in your project.
-      [Add detailed information here.]
-  workflow:
-    title: Workflow & Discussion
-    content: |
-      This section details the workflow and offers a discussion of the results.
-      [Add detailed information here.]
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+
+# Custom settings
+project_title: Your Project Title
+team_members:
+  - name: Member 1
+  - name: Member 2
+  - name: Member 3
+mentor_name: Mentor Name
+github_link: https://github.com/yourusername/yourrepository
+drive_link: https://drive.google.com/your-drive-link
+
+# Additional settings
+sass:
+  style: compressed
+
+# Custom CSS
+custom_css: true
+
+# Create _includes/head.html with this content:
+head_content: |
+  <style>
+    .parallax {
+      perspective: 1px;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    .parallax__layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .parallax__layer--base {
+      transform: translateZ(0);
+    }
+    .parallax__layer--back {
+      transform: translateZ(-1px) scale(2);
+    }
+    section {
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .icon {
+      width: 32px;
+      height: 32px;
+      margin: 0 10px;
+    }
+    .section-content {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
