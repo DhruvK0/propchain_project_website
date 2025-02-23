@@ -1,31 +1,34 @@
 ---
 layout: default
-title: "Your Project Title"
 ---
 
-# Landing Page
-<section id="landing">
-  <h1>Your Project Title</h1>
-  <h3>Members: [List names]</h3>
-  <h3>Mentor: [Mentor Name]</h3>
-  <a href="{{ site.github_repo }}"><img src="/assets/github-icon.png" alt="GitHub"></a>
-  <a href="{{ site.drive_link }}"><img src="/assets/drive-icon.png" alt="Google Drive"></a>
+<section class="parallax-section" id="landing">
+  <div class="section-content">
+    <h1>{{ site.sections.landing.title }}</h1>
+    <p>Members: {{ site.sections.landing.members }}</p>
+    <p>Mentor: {{ site.sections.landing.mentor }}</p>
+    <a href="{{ site.sections.landing.github_link }}" class="icon-link"><img src="assets/github-icon.png" alt="GitHub"></a>
+    <a href="{{ site.sections.landing.drive_link }}" class="icon-link"><img src="assets/drive-icon.png" alt="Google Drive"></a>
+  </div>
 </section>
 
-# Introduction
-<section id="introduction">
-  <h2>Introduction</h2>
-  <p>[Project introduction content]</p>
+<section class="parallax-section" id="introduction">
+  <div class="section-content">
+    <h2>{{ site.sections.introduction.title }}</h2>
+    {{ site.sections.introduction.content | markdownify }}
+  </div>
 </section>
 
-# Methodology
-<section id="methodology">
-  <h2>Methodology</h2>
-  <p>[Methodology content]</p>
+<section class="parallax-section" id="methodology">
+  <div class="section-content">
+    <h2>{{ site.sections.methodology.title }}</h2>
+    {{ site.sections.methodology.content | markdownify }}
+  </div>
 </section>
 
-# Workflow & Discussion
-<section id="workflow">
-  <h2>Workflow & Discussion</h2>
-  <p>[Workflow discussion content]</p>
+<section class="parallax-section" id="workflow">
+  <div class="section-content">
+    <h2>{{ site.sections.workflow.title }}</h2>
+    {{ site.sections.workflow.content | markdownify }}
+  </div>
 </section>
