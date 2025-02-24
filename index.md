@@ -5,14 +5,14 @@ layout: default
 <div class="parallax">
   <section id="landing" class="parallax__layer parallax__layer--base">
     <div class="section-content">
-      <h1>{{ site.project_title }}</h1>
+      <h1>PropChain: Blockchain-Driven Real Estate Transactions</h1>
       <div class="team">
         <h2>Team Members</h2>
-        {% for member in site.team_members %}
-        <p>{{ member.name }}</p>
-        {% endfor %}
+        <p>Dhruv Kanetkar</p>
+        <p>Ish Patel</p>
+        <p>Raghava Bandla</p>
         <h2>Mentor</h2>
-        <p>{{ site.mentor_name }}</p>
+        <p>Professor Rajesh Gupta</p>
       </div>
       <div class="links">
         <a href="{{ site.github_link }}" target="_blank">
