@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Introduction"
-permalink: /introduction/
+permalink: introduction/
 ---
 
 <div class="parallax">
