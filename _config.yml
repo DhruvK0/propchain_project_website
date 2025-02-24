@@ -26,6 +26,19 @@ sass:
 # Custom CSS
 custom_css: true
 
+# Navigation (optional)
+nav:
+  - name: "Home"
+    link: "/"
+  - name: "Introduction"
+    link: "/introduction/"
+  - name: "Methodology"
+    link: "/methodology/"
+  - name: "Workflow"
+    link: "/workflow/"
+  - name: "Conclusion"
+    link: "/conclusion/"
+
 # Create _includes/head.html with this content:
 head_content: |
   <style>
