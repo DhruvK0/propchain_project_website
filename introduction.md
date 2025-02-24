@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Introduction"
-permalink: introduction/
+permalink: propchain_project_website/introduction/
 ---
 
 <div class="parallax">
