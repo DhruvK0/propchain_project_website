@@ -1,7 +1,7 @@
 title: Your Project Title
 description: A detailed description of your project
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "https://dhruvk0.github.io" # the subpath of your site, e.g. /blog
+url: "/propchain_project_website" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
