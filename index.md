@@ -23,5 +23,11 @@ layout: default
         </a>
       </div>
     </div>
+    <div class="page-links">
+    <a href="{{ https://dhruvk0.github.io/propchain_project_website }}/introduction/">Introduction</a> |
+    <a href="{{ https://dhruvk0.github.io/propchain_project_website }}/methodology/">Methodology</a> |
+    <a href="{{ https://dhruvk0.github.io/propchain_project_website }}/workflow/">Workflow</a> |
+    <a href="{{ https://dhruvk0.github.io/propchain_project_website }}/conclusion/">Conclusion</a>
+    </div>
   </section>
 </div>
