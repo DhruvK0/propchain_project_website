@@ -1,0 +1,28 @@
+title: PropChain: A Blockchain Based Framework for Automated Real Estate Transactions
+description: Blockchain-Driven Real Estate Transactions
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+
+# Custom settings
+github_link: https://github.com/yourusername/yourrepository
+drive_link: https://drive.google.com/your-drive-link
+
+# Additional settings
+sass:
+  style: expanded
+
+# Explicitly include assets
+include:
+  - assets/
+  - assets/style.css
+  - assets/logo.svg
+  - assets/favicon.ico
+
+# Custom CSS
+custom_css: true 

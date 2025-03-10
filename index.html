@@ -1,12 +1,233 @@
----
-layout: default
-title: "PropChain"
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PropChain - Blockchain-Driven Real Estate Transactions</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.ico">
+  <style>
+    /* UC San Diego Color Palette */
+    :root {
+      /* Core Colors */
+      --ucsd-navy: #182B49;
+      --ucsd-blue: #00629B;
+      --ucsd-yellow: #FFCD00;
+      --ucsd-gold: #C69214;
+      
+      /* Accent Colors */
+      --ucsd-turquoise: #00C6D7;
+      --ucsd-magenta: #D462AD;
+      --ucsd-sand: #F5F0E6;
+      --ucsd-citron: #F3E500;
+      --ucsd-orange: #FC8900;
+      --ucsd-green: #6E963B;
+      
+      /* Neutrals */
+      --ucsd-black: #000000;
+      --ucsd-cool-gray: #747678;
+      --ucsd-stone: #B6B1A9;
+      --ucsd-white: #FFFFFF;
+    }
+    
+    /* Inline critical CSS in case the external stylesheet doesn't load */
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      color: var(--ucsd-navy);
+      background-color: var(--ucsd-sand);
+      height: 100%;
+    }
+    
+    /* Loading animation */
+    .loader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--ucsd-navy);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+    
+    .loader-container.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+    
+    .loader-circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 8px solid transparent;
+      border-radius: 50%;
+      animation: rotate 2s linear infinite;
+    }
+    
+    .loader-circle:nth-child(1) {
+      border-top-color: var(--ucsd-blue);
+      animation-delay: 0s;
+    }
+    
+    .loader-circle:nth-child(2) {
+      border-right-color: var(--ucsd-yellow);
+      animation-delay: 0.5s;
+    }
+    
+    .loader-circle:nth-child(3) {
+      border-bottom-color: var(--ucsd-turquoise);
+      animation-delay: 1s;
+    }
+    
+    .loader-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--ucsd-white);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-align: center;
+      width: 100%;
+    }
+    
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    section {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 2rem 0;
+      box-sizing: border-box;
+    }
+    
+    .section-content {
+      max-width: 1200px;
+      width: 90%;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .section-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .logo-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Wave background */
+    .wave-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.2;
+    }
+    
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: var(--ucsd-blue);
+      border-radius: 43%;
+      animation: wave 20s linear infinite;
+    }
+    
+    .wave:nth-child(2) {
+      background: var(--ucsd-turquoise);
+      animation-duration: 25s;
+      opacity: 0.3;
+    }
+    
+    .wave:nth-child(3) {
+      background: var(--ucsd-yellow);
+      animation-duration: 30s;
+      opacity: 0.2;
+    }
+    
+    @keyframes wave {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+    
+    #landing {
+      background-color: var(--ucsd-navy);
+      position: relative;
+      color: var(--ucsd-white);
+      text-align: center;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loading Animation -->
+<div class="loader-container">
+  <div class="loader">
+    <div class="loader-circle"></div>
+    <div class="loader-circle"></div>
+    <div class="loader-circle"></div>
+    <div class="loader-text">PropChain</div>
+  </div>
+</div>
 
 <section id="landing">
+  <!-- Wave Background -->
+  <div class="wave-bg">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+  
   <div class="section-content">
     <div class="logo-container">
-      <object type="image/svg+xml" data="{{ site.baseurl }}/assets/logo.svg" class="animated-logo">
+      <object type="image/svg+xml" data="assets/logo.svg" class="animated-logo">
         PropChain Logo
       </object>
     </div>
@@ -23,10 +244,10 @@ title: "PropChain"
     </div>
     
     <div class="links fade-in delay-4">
-      <a href="{{ site.github_link }}" target="_blank" aria-label="GitHub">
+      <a href="#" target="_blank" aria-label="GitHub">
         <i class="fab fa-github"></i>
       </a>
-      <a href="{{ site.drive_link }}" target="_blank" aria-label="Google Drive">
+      <a href="#" target="_blank" aria-label="Google Drive">
         <i class="fab fa-google-drive"></i>
       </a>
     </div>
@@ -157,3 +378,65 @@ title: "PropChain"
     </p>
   </div>
 </section>
+
+<div class="nav-dots">
+  <div class="nav-dot active" data-target="landing"></div>
+  <div class="nav-dot" data-target="introduction"></div>
+  <div class="nav-dot" data-target="methodology"></div>
+  <div class="nav-dot" data-target="workflow"></div>
+  <div class="nav-dot" data-target="conclusion"></div>
+</div>
+
+<script>
+  // Loading animation
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      document.querySelector('.loader-container').classList.add('hidden');
+    }, 2500);
+    
+    // Intersection Observer for fade-in animations
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // Find all fade-in elements within this section
+          const fadeElements = entry.target.querySelectorAll('.fade-in');
+          fadeElements.forEach(el => {
+            el.classList.add('visible');
+          });
+          
+          // Update active nav dot
+          const sectionId = entry.target.parentElement.id;
+          updateActiveDot(sectionId);
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    // Observe all section contents
+    document.querySelectorAll('.section-content').forEach(section => {
+      sectionObserver.observe(section);
+    });
+    
+    // Smooth scroll for navigation dots
+    document.querySelectorAll('.nav-dot').forEach(dot => {
+      dot.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  });
+  
+  // Update active navigation dot
+  function updateActiveDot(sectionId) {
+    document.querySelectorAll('.nav-dot').forEach(dot => {
+      if (dot.getAttribute('data-target') === sectionId) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+</script>
+</body>
+</html> 

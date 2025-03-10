@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <style>
+    .chain {
+      fill: none;
+      stroke: #00629B; /* UC San Diego Blue */
+      stroke-width: 8;
+      stroke-linecap: round;
+    }
+    .house {
+      fill: #FFCD00; /* UC San Diego Yellow */
+    }
+    @keyframes drawChain {
+      0% {
+        stroke-dashoffset: 500;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    #chain-path {
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
+      animation: drawChain 3s ease forwards;
+    }
+    #house-icon {
+      opacity: 0;
+      animation: fadeIn 1s ease 2s forwards, pulse 3s ease-in-out 3s infinite;
+      transform-origin: center;
+    }
+  </style>
+  
+  <!-- House icon -->
+  <g id="house-icon">
+    <path class="house" d="M100,40 L160,90 L160,160 L40,160 L40,90 Z" />
+    <rect class="house" x="85" y="120" width="30" height="40" />
+  </g>
+  
+  <!-- Chain around the house -->
+  <path id="chain-path" class="chain" d="M30,100 C30,60 60,30 100,30 C140,30 170,60 170,100 C170,140 140,170 100,170 C60,170 30,140 30,100 Z" />
+</svg> 

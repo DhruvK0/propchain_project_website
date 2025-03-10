@@ -1,7 +1,7 @@
-title: Your Project Title
-description: A detailed description of your project
-baseurl: "/propchain_project_website" # the subpath of your site, e.g. /blog
-url: "https://dhruvk0.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+title: PropChain
+description: Blockchain-Driven Real Estate Transactions
+baseurl: "" # Empty for local development
+url: "" # Empty for local development
 
 # Build settings
 markdown: kramdown
@@ -22,6 +22,13 @@ drive_link: https://drive.google.com/your-drive-link
 # Additional settings
 sass:
   style: compressed
+
+# Explicitly include assets
+include:
+  - assets/
+  - assets/style.css
+  - assets/logo.svg
+  - assets/favicon.ico
 
 # Custom CSS
 custom_css: true
