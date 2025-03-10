@@ -276,6 +276,8 @@
     <p class="fade-in delay-1">
       PropChain is built on a foundation of cutting-edge technologies and innovative approaches. Here's how we did it:
     </p>
+    
+    <h3 class="fade-in delay-1">Core Technologies</h3>
     <ul>
       <li class="fade-in delay-1">
         <strong>Blockchain Technology</strong>: 
@@ -291,25 +293,116 @@
         <strong>Smart Contracts</strong>: 
         Smart contracts are self-executing programs that run on the blockchain. They automatically enforce the terms of an agreement when predefined conditions are met. Here's how they work in PropChain:
         <ul>
-          <li><strong>Automation</strong>: Smart contracts automate processes like escrow, title transfers, and payments. For example, when a buyer and seller agree on terms, the smart contract holds the funds in escrow and releases them only when all conditions (e.g., title transfer, inspection) are satisfied.</li>
-          <li><strong>Transparency</strong>: The code of the smart contract is publicly visible on the blockchain, ensuring that all parties can verify its logic and fairness.</li>
-          <li><strong>Security</strong>: Once deployed, the smart contract cannot be altered, eliminating the risk of tampering or fraud.</li>
+          <li><strong>Automation</strong>: Smart contracts automate processes like escrow, title transfers, and payments.</li>
+          <li><strong>Transparency</strong>: The code of the smart contract is publicly visible on the blockchain.</li>
+          <li><strong>Security</strong>: Once deployed, the smart contract cannot be altered, eliminating the risk of tampering.</li>
         </ul>
-        Smart contracts are written in <strong>Solidity</strong>, a programming language specifically designed for Ethereum. They are deployed on the Ethereum Virtual Machine (EVM), which executes the code in a secure and decentralized manner.
+        Smart contracts are written in <strong>Solidity</strong>, a programming language specifically designed for Ethereum.
       </li>
       <li class="fade-in delay-3">
         <strong>Front-End Interface</strong>: 
-        Our user-friendly interface allows buyers and sellers to easily search for properties, initiate transactions, and track progress in real time. The design prioritizes simplicity and accessibility, making it easy for anyone to use. The front-end is built using modern web technologies like <strong>React.js</strong> and connects to the blockchain via <strong>Web3.js</strong>, a library that enables interaction with Ethereum-based applications.
+        Our user-friendly interface allows buyers and sellers to easily search for properties, initiate transactions, and track progress in real time.
       </li>
       <li class="fade-in delay-4">
         <strong>Property Verification</strong>: 
-        To ensure the accuracy of property listings, we implemented a verification system that uses geolocation data and EXIF tags from uploaded photos. In the future, we plan to integrate AI to further enhance this process by analyzing photos for consistency with the property's location.
+        To ensure the accuracy of property listings, we implemented a verification system that uses geolocation data and EXIF tags from uploaded photos.
       </li>
       <li class="fade-in delay-5">
         <strong>ERC-20 Token System</strong>: 
-        Users earn <strong>ERC-20 tokens</strong> for verifying properties, creating a community-driven approach to maintaining accurate listings. These tokens can be used within the PropChain ecosystem. This incentivizes participation and reduces the need for costly third-party verification services.
+        Users earn <strong>ERC-20 tokens</strong> for verifying properties, creating a community-driven approach to maintaining accurate listings.
       </li>
     </ul>
+    
+    <h3 class="fade-in delay-1">System Architecture Diagrams</h3>
+    <div class="fade-in delay-2">
+      <p>The PropChain system architecture is designed to ensure secure, efficient, and transparent real estate transactions:</p>
+      
+      <div class="diagram-container">
+        <img src="assets/Title Search Diagram.png" alt="PropChain System Architecture" class="diagram-image responsive-img">
+        <p class="diagram-caption">Figure 1: PropChain Title Search System Architecture</p>
+      </div>
+      
+      <div class="diagram-grid">
+        <div class="diagram-item">
+          <img src="assets/Buyer Diagram (1).png" alt="Buyer Workflow" class="diagram-image responsive-img">
+          <p class="diagram-caption">Figure 2: Buyer Workflow</p>
+        </div>
+        <div class="diagram-item">
+          <img src="assets/Seller Diagram (1).png" alt="Seller Workflow" class="diagram-image responsive-img">
+          <p class="diagram-caption">Figure 3: Seller Workflow</p>
+        </div>
+      </div>
+    </div>
+    
+    <h3 class="fade-in delay-1">Data Storage Structure</h3>
+    <div class="fade-in delay-2">
+      <p>PropChain utilizes a sophisticated data storage structure across multiple smart contracts:</p>
+      
+      <div class="diagram-grid">
+        <div class="diagram-item">
+          <img src="assets/RealEstateToken (1).png" alt="Real Estate Token Contract" class="diagram-image responsive-img">
+          <p class="diagram-caption">Figure 4: Real Estate Token Contract</p>
+        </div>
+        <div class="diagram-item">
+          <img src="assets/PropertyTransfer (1).png" alt="Property Transfer Contract" class="diagram-image responsive-img">
+          <p class="diagram-caption">Figure 5: Property Transfer Contract</p>
+        </div>
+      </div>
+      
+      <div class="diagram-grid">
+        <div class="diagram-item">
+          <img src="assets/Escrow (1).png" alt="Escrow Contract" class="diagram-image responsive-img">
+          <p class="diagram-caption">Figure 6: Escrow Contract</p>
+        </div>
+        <div class="diagram-item">
+          <img src="assets/TitleInsurance (1).png" alt="Title Insurance Contract" class="diagram-image responsive-img">
+          <p class="diagram-caption">Figure 7: Title Insurance Contract</p>
+        </div>
+      </div>
+      
+      <h4>Key Contract Structures</h4>
+      <div class="code-container">
+        <h5>Property Contract</h5>
+        <pre class="code-block">
+struct Property {
+    uint256 id;
+    address owner;
+    string location;
+    uint256 price;
+    bool forSale;
+    string metadataURI;
+    mapping(address => bool) verifiers;
+    uint256 verificationCount;
+}
+        </pre>
+        
+        <h5>Title Registry Contract</h5>
+        <pre class="code-block">
+struct Title {
+    uint256 propertyId;
+    address currentOwner;
+    address[] previousOwners;
+    uint256 lastTransferDate;
+    string legalDescription;
+    bool hasEncumbrances;
+}
+        </pre>
+        
+        <h5>Transaction Contract</h5>
+        <pre class="code-block">
+struct Transaction {
+    uint256 id;
+    uint256 propertyId;
+    address buyer;
+    address seller;
+    uint256 amount;
+    uint256 timestamp;
+    TransactionStatus status;
+    mapping(string => bool) conditions;
+}
+        </pre>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -319,39 +412,72 @@
     <p class="fade-in delay-1">
       PropChain has already demonstrated its potential to transform real estate transactions. Here's a look at our workflow, results, and future plans:
     </p>
-    <ul>
-      <li class="fade-in delay-1"><strong>Project Timeline</strong>:
-        <ul>
-          <li><strong>Phase 1</strong>: Research and planning – identifying pain points in real estate transactions and designing a blockchain-based solution.</li>
-          <li><strong>Phase 2</strong>: Development – building the platform's core features, including smart contracts, property search, and verification.</li>
-          <li><strong>Phase 3</strong>: Testing – conducting internal tests and refining the platform based on results.</li>
-          <li><strong>Phase 4</strong>: Launch – making PropChain available to the public and gathering real-world data.</li>
-        </ul>
-      </li>
-      <li class="fade-in delay-2"><strong>Key Results</strong>:
-        <ul>
-          <li><strong>Faster Transactions</strong>: By automating processes, PropChain reduces transaction times from weeks to days.</li>
-          <li><strong>Lower Costs</strong>: Eliminating intermediaries cuts costs for buyers, sellers, and agents.</li>
-          <li><strong>Enhanced Transparency</strong>: All transactions are recorded on the blockchain, ensuring trust and accountability.</li>
-          <li><strong>User Engagement</strong>: The token incentive system encourages active participation, creating a community of users.</li>
-        </ul>
-      </li>
-      <li class="fade-in delay-3"><strong>Challenges and Solutions</strong>:
-        <ul>
-          <li><strong>Challenge</strong>: Ensuring the accuracy of property listings.</li>
-          <li><strong>Solution</strong>: Implementing geolocation and EXIF-based verification, with plans to integrate AI for further improvements.</li>
-          <li><strong>Challenge</strong>: Making the platform accessible to non-technical users, and those who dont necessarily want to buy properties.</li>
-          <li><strong>Solution</strong>: Designing an intuitive interface, multiple account creation methods, and removing the necessity to set-up a wallet to use other features, such as title search.</li>
-        </ul>
-      </li>
-      <li class="fade-in delay-4"><strong>Future Improvements</strong>:
-        <ul>
-          <li><strong>Government Integration</strong>: Collaborating with land registry systems to streamline title transfers.</li>
-          <li><strong>Cross-Border Transactions</strong>: Expanding the platform to support international real estate deals.</li>
-          <li><strong>AI-Powered Verification</strong>: Using AI to analyze uploaded photos and ensure they match the property's location.</li>
-          <li><strong>Token Ecosystem</strong>: Expanding the use of tokens to incentivize more user actions, such as property listings and reviews.</li>
-        </ul>
-      </li>
+    
+    <h3 class="fade-in delay-1">Project Timeline</h3>
+    <ul class="fade-in delay-2">
+      <li><strong>Phase 1</strong>: Research and planning – identifying pain points in real estate transactions and designing a blockchain-based solution.</li>
+      <li><strong>Phase 2</strong>: Development – building the platform's core features, including smart contracts, property search, and verification.</li>
+      <li><strong>Phase 3</strong>: Testing – conducting internal tests and refining the platform based on results.</li>
+      <li><strong>Phase 4</strong>: Launch – making PropChain available to the public and gathering real-world data.</li>
+    </ul>
+    
+    <h3 class="fade-in delay-1">Frontend Implementation</h3>
+    <div class="fade-in delay-2">
+      <p>Our frontend implementation focuses on creating an intuitive user experience that abstracts the complexity of blockchain technology:</p>
+      
+      <div class="screenshot-container">
+        <img src="assets/Title Search Frontend.png" alt="PropChain Title Search Interface" class="screenshot-image responsive-img">
+        <p class="screenshot-caption">Figure 8: PropChain Title Search Interface</p>
+      </div>
+      
+      <p>The title search interface allows users to search for properties by address, owner, or property ID and view complete ownership history.</p>
+      
+      <div class="screenshot-container">
+        <img src="assets/Property Page Frontend.png" alt="PropChain Property Listing Page" class="screenshot-image responsive-img">
+        <p class="screenshot-caption">Figure 9: PropChain Property Listing Page</p>
+      </div>
+      
+      <p>The property listing page provides comprehensive details and allows for direct transaction initiation.</p>
+      
+      <div class="diagram-grid">
+        <div class="diagram-item">
+          <img src="assets/KYC (1).png" alt="KYC Process" class="diagram-image responsive-img">
+          <p class="diagram-caption">Figure 10: KYC Verification Process</p>
+        </div>
+        <div class="diagram-item">
+          <img src="assets/Loan (1).png" alt="Loan Process" class="diagram-image responsive-img">
+          <p class="diagram-caption">Figure 11: Loan Application Process</p>
+        </div>
+      </div>
+      
+      <div class="diagram-container">
+        <img src="assets/Bank Diagram (1).png" alt="Banking Integration" class="diagram-image responsive-img">
+        <p class="diagram-caption">Figure 12: Banking Integration Workflow</p>
+      </div>
+    </div>
+    
+    <h3 class="fade-in delay-1">Key Results</h3>
+    <ul class="fade-in delay-2">
+      <li><strong>Faster Transactions</strong>: By automating processes, PropChain reduces transaction times from weeks to days.</li>
+      <li><strong>Lower Costs</strong>: Eliminating intermediaries cuts costs for buyers, sellers, and agents.</li>
+      <li><strong>Enhanced Transparency</strong>: All transactions are recorded on the blockchain, ensuring trust and accountability.</li>
+      <li><strong>User Engagement</strong>: The token incentive system encourages active participation, creating a community of users.</li>
+    </ul>
+    
+    <h3 class="fade-in delay-1">Challenges and Solutions</h3>
+    <ul class="fade-in delay-2">
+      <li><strong>Challenge</strong>: Ensuring the accuracy of property listings.</li>
+      <li><strong>Solution</strong>: Implementing geolocation and EXIF-based verification, with plans to integrate AI for further improvements.</li>
+      <li><strong>Challenge</strong>: Making the platform accessible to non-technical users, and those who dont necessarily want to buy properties.</li>
+      <li><strong>Solution</strong>: Designing an intuitive interface, multiple account creation methods, and removing the necessity to set-up a wallet to use other features, such as title search.</li>
+    </ul>
+    
+    <h3 class="fade-in delay-1">Future Improvements</h3>
+    <ul class="fade-in delay-2">
+      <li><strong>Government Integration</strong>: Collaborating with land registry systems to streamline title transfers.</li>
+      <li><strong>Cross-Border Transactions</strong>: Expanding the platform to support international real estate deals.</li>
+      <li><strong>AI-Powered Verification</strong>: Using AI to analyze uploaded photos and ensure they match the property's location.</li>
+      <li><strong>Token Ecosystem</strong>: Expanding the use of tokens to incentivize more user actions, such as property listings and reviews.</li>
     </ul>
   </div>
 </section>
@@ -391,18 +517,29 @@
 <script>
   // Loading animation
   document.addEventListener('DOMContentLoaded', function() {
+    // Debug logging
+    console.log("DOM Content Loaded");
+    console.log("Sections found:", document.querySelectorAll('section').length);
+    document.querySelectorAll('section').forEach((section, index) => {
+      console.log(`Section ${index + 1} ID:`, section.id);
+    });
+    
     setTimeout(function() {
       document.querySelector('.loader-container').classList.add('hidden');
+      console.log("Loader hidden");
     }, 2500);
     
     // Intersection Observer for fade-in animations
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        console.log("Section intersecting:", entry.target.parentElement.id, entry.isIntersecting);
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          console.log("Added visible class to:", entry.target.parentElement.id);
           
           // Find all fade-in elements within this section
           const fadeElements = entry.target.querySelectorAll('.fade-in');
+          console.log("Fade elements found:", fadeElements.length);
           fadeElements.forEach(el => {
             el.classList.add('visible');
           });
@@ -415,14 +552,18 @@
     }, { threshold: 0.2 });
     
     // Observe all section contents
-    document.querySelectorAll('.section-content').forEach(section => {
+    const sectionContents = document.querySelectorAll('.section-content');
+    console.log("Section contents found:", sectionContents.length);
+    sectionContents.forEach(section => {
       sectionObserver.observe(section);
+      console.log("Observing section content in:", section.parentElement.id);
     });
     
     // Smooth scroll for navigation dots
     document.querySelectorAll('.nav-dot').forEach(dot => {
       dot.addEventListener('click', function() {
         const targetId = this.getAttribute('data-target');
+        console.log("Dot clicked for:", targetId);
         document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
       });
     });
@@ -430,6 +571,7 @@
   
   // Update active navigation dot
   function updateActiveDot(sectionId) {
+    console.log("Updating active dot for:", sectionId);
     document.querySelectorAll('.nav-dot').forEach(dot => {
       if (dot.getAttribute('data-target') === sectionId) {
         dot.classList.add('active');
